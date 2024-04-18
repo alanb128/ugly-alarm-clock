@@ -17,3 +17,5 @@ dtparam=audio=on
 enable_uart=0
 gpu_mem=256
 ```
+FBCP_DISPLAY=adafruit-hx8357d-pitft
+KIOSK=1
