@@ -2,7 +2,7 @@
 Turn an old clock radio into a modern marvel
 
 
-config.txt
+config.txt - overwrite SD card version with the below after flashing but before first provisioning.
 ```
 hdmi_cvt=480 320 60 1 0 0 0
 hdmi_force_hotplug=1
@@ -19,3 +19,4 @@ gpu_mem=256
 ```
 FBCP_DISPLAY=adafruit-hx8357d-pitft
 KIOSK=1
+AUDIO_OUTPUT=RPI_HEADPHONES
