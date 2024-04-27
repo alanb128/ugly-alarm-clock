@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>Radio</title>
+    <!-- Adapted from https://www.codesdope.com/blog/article/how-to-create-a-digital-clock-using-javascript/  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap-reboot.min.css"
+    />
+    <style>
+    /* Google font */
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+body {
+  background-color: #121212;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+#tp {
+  font-family: 'Orbitron', sans-serif;
+  color: #66ff99;
+  font-size: 36px;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+#bt {
+  font-family: 'Orbitron', sans-serif;
+  color: #66ff99;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#clock {
+  font-family: 'Orbitron', sans-serif;
+  color: #66ff99;
+  font-size: 56px;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+</style>
+ 
+  </head>
+  <body>
+    <div id="tp">
+      <span id="hdg">Radio Mode</span>
+    </div>
+      <div id="clock">
+       
+      </div>
+      <div id="bt">
+        <span id="rds"></span>
+      </div>
+    
+   <script src="/socket.io/socket.io.js"></script>
+   <script>
+window.onload = function () {
+   document.getElementById("clock").innerHTML = "FM Radio";
+   document.getElementById("rds").innerHTML = "No station info.";
+   // check for active connection
+var isConnectionActive = false;
+
+// connect to the Web Socket server
+var connection = io( );
+
+// when connection is established
+connection.on( 'connect', () => {
+  isConnectionActive = true;
+} );
+
+connection.on( 'disconnect', () => {
+  isConnectionActive = false;
+} );
+
+connection.on( 'intro', ( data ) => {
+  //document.getElementById('tx_status').innerHTML = 'Connected: ' + data.message;  
+} );
+
+connection.on( 'tune', ( data ) => {
+  document.getElementById("clock").innerHTML = data.message.freq;
+
+
+} );
+
+
+connection.on( 'info', ( data ) => {
+  document.getElementById("rds").innerHTML = data.message.station;
+
+
+} );
+
+};
+   </script>
+   </body>
+</html>

@@ -1,0 +1,54 @@
+version: '2'
+
+volumes:
+  settings:                          # Only required if using PERSISTENT flag (see below)
+  my-data:
+
+services:
+
+  controller:
+    build: ./controller
+    restart: always
+    labels:
+      io.balena.features.supervisor-api: 1  # necessary to discover services
+      io.balena.features.dbus: '1'
+    privileged: true # necessary to read sensors
+    volumes:
+      -  'my-data:/data/my-data'
+    environment:
+      - 'PULSE_SERVER=tcp:audio:4317'
+      - 'DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket'
+  
+  fbcp:
+    image: bh.cr/balenalabs/fbcp
+    privileged: true    
+      
+  audio:
+    restart: always
+    image: bh.cr/balenalabs/audio-aarch64
+    privileged: true
+    ports:
+      - 4317:4317 
+ 
+  #slot-machine:
+  #  restart: always
+  #  privileged: true
+  #  build: ./html5-slot-machine
+  #  ports:
+  #    - 8080:8080
+ 
+  slot:
+    restart: always
+    privileged: true
+    build: ./slot-2
+    ports:
+      - 8080:80
+                
+  browser:
+    image: bh.cr/balenalabs/browser-aarch64 # where <arch> is one of aarch64, arm32 or amd64
+    privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
+    ports:
+        - '5011' # management API (optional)
+        - '35173' # Chromium debugging port (optional)
+    volumes:
+      - 'settings:/data' # Only required if using PERSISTENT flag (see below)
