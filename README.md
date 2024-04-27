@@ -17,6 +17,10 @@ dtparam=audio=on
 enable_uart=0
 gpu_mem=256
 ```
+Device variables:
+
 FBCP_DISPLAY=adafruit-hx8357d-pitft
+
 KIOSK=1
+
 AUDIO_OUTPUT=RPI_HEADPHONES
