@@ -1,5 +1,13 @@
 # ugly-alarm-clock
-Turn an old clock radio into a modern marvel
+Turn an old clock radio into a modern marvel. Watch the video:
+
+## Parts Used
+
+
+## Software Used
+
+
+## Setup
 
 
 config.txt - overwrite SD card version with the below after flashing but before first provisioning.
@@ -24,3 +32,7 @@ FBCP_DISPLAY=adafruit-hx8357d-pitft
 KIOSK=1
 
 AUDIO_OUTPUT=RPI_HEADPHONES
+
+## Sources
+
+HTML 5 Slot Machine courtesy of: https://github.com/johakr/html5-slot-machine
