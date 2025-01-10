@@ -22,6 +22,8 @@ The demo device used [balenaCloud](www.balena.io) for ease of running containers
 
 ## Setup
 
+The software runs in containers. You can use Docker on the Pi or balenaOS/balenaCloud.
+
 ### Docker
 - Install Docker on your Pi
 - Clone this repo to the Pi
