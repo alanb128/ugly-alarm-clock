@@ -103,7 +103,7 @@ def top_press(channel):
         pygame.init()
         pygame.mixer.init()
 
-        pygame.mixer.music.load('/usr/src/app/mixkit-slot-machine-wheel-1932.wav')
+        pygame.mixer.music.load('/usr/src/app/slot.wav')
         pygame.mixer.music.play()
     else:
         MODE = "slot"
