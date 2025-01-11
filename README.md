@@ -61,5 +61,5 @@ KIOSK=1
 AUDIO_OUTPUT=RPI_HEADPHONES
 
 
-
+Replace [slot.wav](https://github.com/alanb128/ugly-alarm-clock/blob/11fad284376526475cbbb9bac4f8eb3be42c2aab/controller/slot.wav) with an actual slot machine wav file (44.1/16 bit) since I can't include the one I used in this repo. (Check out [freesound.org](https://freesound.org/people/pierrecartoons1979/sounds/118236/?) or [mixcit.co](https://mixkit.co/free-sound-effects/slot-machine/).)
 
