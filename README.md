@@ -1,6 +1,8 @@
 # ugly-alarm-clock
 Turn an old clock radio into a modern marvel. Watch the video: https://youtu.be/4f58pf0taho
 
+<img src="clock.JPG">
+
 The demo device used [balenaCloud](www.balena.io) for ease of running containers remotely on a Pi, but this can be run with plain Docker as well.
 
 **Note: This repo is for demonstration and inspiration purposes only. The software worked on my particular hardware setup which may be difficult to reproduce exactly. I can't guarantee this will work or be maintained, and unfortunately I likely can't respond to individual questions/issues...**
